@@ -1,0 +1,28 @@
+.container {
+    max-width: 100vw;
+  }
+  
+  .navigation {
+    display: flex;
+    flex-direction: row;
+    background-color: #15181C;
+    width: 100%;
+  }
+
+  .navLinks {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .navLink {
+    list-style-type: none;
+    margin: auto 1rem;
+    text-decoration: none;
+    color: white;
+  }
+
+  .chart {
+    color: white;
+  }
