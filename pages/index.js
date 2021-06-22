@@ -4,6 +4,9 @@ import styles from '../styles/Home.module.css'
 import Link from "next/link"
 import {useState} from "react"
 
+import 'semantic-ui-css/semantic.min.css';
+// import './App.css';
+
 import Layout from "../components/layout"
 import Wacthlist from "../components/watchlist"
 import Roi from "../components/roi"
