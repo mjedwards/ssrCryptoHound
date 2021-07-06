@@ -1,8 +1,8 @@
 import {React, useState }from 'react';
 import { Icon, Label, Menu, Table } from 'semantic-ui-react'
-import Pagination from './pagination'
+import Pagination from '../home/pagination'
 
-const AssetsTable = ({ assets, loading }) => {
+const MiningTable = ({ assets, loading}) => {
     const [isActivated, setIsActived] = useState("");
     const handleClick = (e) => {
         if (e) {
@@ -12,18 +12,17 @@ const AssetsTable = ({ assets, loading }) => {
             setIsActived("")
         }
     }
-//   if (loading) {
-//     return <h2>Loading...</h2>;
-//   }
 
   return (
-    <Table celled inverted sortable small textAlign="center" striped fixed>
+      <div>
+        <h1>MINING STATS</h1>
+        <Table inverted sortable  textAlign="center" striped fixed style={{background: "black !important"}}>
         <Table.Header>
         <Table.Row>
-            <Table.HeaderCell sorted>NAME</Table.HeaderCell>
-            <Table.HeaderCell sorted>PRICE</Table.HeaderCell>
-            <Table.HeaderCell sorted>MCAP</Table.HeaderCell>
-            <Table.HeaderCell sorted>24H</Table.HeaderCell>
+            <Table.HeaderCell style={{color: '#0070f3 !important'}}>Name</Table.HeaderCell>
+            <Table.HeaderCell style={{color: '#0070f3 !important'}}>Hash Rate</Table.HeaderCell>
+            <Table.HeaderCell style={{color: '#0070f3 !important'}}>30D Hash Rate</Table.HeaderCell>
+            <Table.HeaderCell style={{color: '#0070f3 !important'}}>Mining Revenue</Table.HeaderCell>
         </Table.Row>
         </Table.Header>
 
@@ -32,17 +31,16 @@ const AssetsTable = ({ assets, loading }) => {
                 return (
                     <Table.Row key={i.id} onClick={handleClick} className={isActivated}>
                         <Table.Cell singleLine>
-                            <h5>{i.symbol}</h5>
                             {i.name}
                         </Table.Cell>
                         <Table.Cell>
-                            {i.price}
+                            {i.hashRate}
                         </Table.Cell>
                         <Table.Cell>
-                            {i.market_cap}
+                            {i.thirtyDayHR}
                         </Table.Cell>
-                        <Table.Cell className={i.TwoFourH > 0 ? "positive" : "negative"}>
-                            {i.TwoFourH}
+                        <Table.Cell>
+                            {i.miningRev}
                         </Table.Cell>
                     </Table.Row>
                 )
@@ -50,7 +48,8 @@ const AssetsTable = ({ assets, loading }) => {
             
         </Table.Body>
     </Table> 
+      </div>
   );
 };
 
-export default AssetsTable;
+export default MiningTable;

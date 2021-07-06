@@ -8,23 +8,29 @@
   grid-template-rows: auto;
   grid-gap: 1em;
   height: 100vh;
+  color: white;
+  text-align: center;
+  margin-top: 20px;
 }
 
 .leftContainer {
   display: flex;
   flex-direction: column;
   grid-column: 1/2;
+  grid-gap: 35px;
 }
 
 .centerContainer {
   display: flex;
   flex-direction: column;
   grid-column: 2/3;
+  grid-gap: 20px;
 }
 .rightContainer {
   display: flex;
   flex-direction: column;
   grid-column: 3/4;
+  grid-gap:35px;
 }
 
 .main {

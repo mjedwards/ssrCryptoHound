@@ -3,9 +3,10 @@ import Image from 'next/image'
 import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
+import 'semantic-ui-css/semantic.min.css'
 
-const name = 'Jair'
-export const siteTitle = 'Next.js Sample Website'
+const name = 'Crypto Hound'
+export const siteTitle = 'Crypto Hound'
 
 export default function Layout({ children, home }) {
   return (
@@ -14,7 +15,7 @@ export default function Layout({ children, home }) {
         <title>Crypto Hound</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet"></link>
+        {/* <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet"></link> */}
         <meta
           name="description"
           content="Web Application for cryptocurrency and blockchain research"
@@ -40,9 +41,12 @@ export default function Layout({ children, home }) {
             />
         </Link>
           <ul className={styles.navLinks}>
-            <li className={styles.navLink}><Link href="/">Home</Link></li>
-            <li className={styles.navLink}><Link href="about">About</Link></li>
-            <li className={styles.navLink}><Link href="contact">Contact</Link></li>
+            <li className={styles.navLink}><i className="home icon" style={{maringLeft: '5px'}}></i><Link href="/">Home</Link></li>
+            <li className={styles.navLink}><i className="bolt icon" style={{maringLeft: '5px'}}></i><Link href="about">About</Link></li>
+            <li className={styles.navLink}><i className="chart line icon" style={{maringLeft: '5px'}}></i><Link href="chart">Chart</Link></li>
+            <li className={styles.navLink}><i className="columns icon" style={{maringLeft: '5px'}}></i><Link href="screener">Screener</Link></li>
+            <li className={styles.navLink}><i className="book icon" style={{maringLeft: '5px'}}></i><Link href="research">Research</Link></li>
+            <li className={styles.navLink}><i className="fire icon" style={{maringLeft: '5px'}}></i><Link href="intel">Intel</Link></li>
           </ul>
         </nav>
       </header>

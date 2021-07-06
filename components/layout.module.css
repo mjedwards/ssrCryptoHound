@@ -23,6 +23,16 @@
     color: white;
   }
 
+  .navLink  a {
+    color: white;
+    font-size: 1rem;
+  }
+
+  .navLink a:hover {
+    background-color: #2270B8;
+    cursor: pointer;
+  }
+
   .chart {
     color: white;
   }

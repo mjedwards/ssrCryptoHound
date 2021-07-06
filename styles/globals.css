@@ -5,7 +5,7 @@ body {
   /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
   font-family: 'Odibee Sans', cursive;
-  background-color: #080A0D;
+  background-color: #080A0D !important;
 }
 
 a {
@@ -13,9 +13,8 @@ a {
   text-decoration: none;
 }
 
-a:hover {
+.navLink a:hover {
   color: #2270B8;
-  font-size: 1.2rem;
   cursor: pointer;
 }
 

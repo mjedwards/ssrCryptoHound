@@ -5,13 +5,23 @@ import Link from "next/link"
 import {useState} from "react"
 
 import 'semantic-ui-css/semantic.min.css';
-// import './App.css';
 
 import Layout from "../components/layout"
-import Wacthlist from "../components/watchlist"
-import Roi from "../components/roi"
+import Wacthlist from "../components/home/watchlist"
+import Roi from "../components/home/roi"
+import Sectors from "../components/home/sectors"
+import Mining from "../components/home/miningStats"
 import Chart from "../components/chart"
-// import Layout from "../components/layout"
+import News from "../components/home/news"
+import MiniNav from '../components/home/miniNav'
+import Cta from '../components/home/cta'
+import CtaTwo from '../components/home/ctaTwo'
+import Footer from '../components/home/footer'
+
+import SpecialUpdates from '../components/home/specialUpdates'
+import Volume from '../components/home/volumes'
+import Subscribe from '../components/home/subscribe'
+import Fundamentals from '../components/home/fundamentals'
 
 export default function Home() {
   const [watchList, setWatchList] = useState([]);
@@ -22,20 +32,22 @@ export default function Home() {
         <div className={styles.leftContainer}>
           <Wacthlist />
           <Roi />
-          <div className={styles.cards}>Ecosysstem</div>
-          <div className={styles.cards}>Sectors</div>
+          <Mining />
+          <Sectors />
         </div>
         <div className={styles.centerContainer}>
           <Chart />
-          <div className={styles.cards}>Research</div>
-          <div className={styles.cards}>Intel</div>
-          <div className={styles.cards}>Messari Lists</div>
-          <div className={styles.cards}>Library</div>
+          <CtaTwo />
+          <News />
+          <MiniNav />
+          <Cta />
+          <Footer />
         </div>
         <div className={styles.rightContainer}>
-          <div className={styles.cards}>Special Updates</div>
-          <div className={styles.cards}>Volume</div>
-          <div className={styles.cards}>Fundamentals</div>
+          <SpecialUpdates />
+          <Volume />
+          <Subscribe />
+          <Fundamentals />
         </div>
       </div>
     </Layout>

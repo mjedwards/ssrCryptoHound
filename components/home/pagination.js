@@ -1,6 +1,6 @@
 import React from 'react';
 import { Menu } from 'semantic-ui-react'
-import styles from '../styles/pagination.module.css';
+import styles from '../../styles/pagination.module.css';
 
 
 const Pagination = ({ assetsPerPage, totalAssets, paginate }) => {
