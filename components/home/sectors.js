@@ -4,27 +4,14 @@ import SectorsTable from '../tables/sectorsTable'
 import Pagination from './pagination'
 
 
-const Sectors = () => {
+const Sectors = ({data}) => {
     let rows = { sector: "" }
-    const [assets, setAssets] = useState([])
-    const [loading, setLoading] = useState(false);
+    // const [assets, setAssets] = useState([])
+    // const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1)
     const [assetsPerPage] = useState(8);
-    
-    useEffect(() => {
-        setLoading(true);
-        let mounted = true;
-            axios.get('https://data.messari.io/api/v2/assets?with-profiles').then(res => {
-                const data = res.data.data
-                if(mounted) {
-                    setAssets(data)
-                    setLoading(false);
-                }
-            })
-            return () => mounted = false;
-    }, [])
 
-    rows = assets.map( (i) => {
+    rows = data.data.map( (i) => {
         return {
             id: i.id,
             sector: i.profile.general.overview.sector,
@@ -47,7 +34,7 @@ const Sectors = () => {
 
     return (
         <div style={{ height: 400, width: '100%' }}> 
-            <SectorsTable assets={currentAssets} loading={loading}/>
+            <SectorsTable assets={currentAssets} />
             <Pagination
             assetsPerPage={assetsPerPage}
             totalAssets={rows.length}

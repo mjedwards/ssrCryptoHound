@@ -1,30 +1,17 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import axios from 'axios'
 import { Menu } from 'semantic-ui-react'
 import styles from '../../styles/pagination.module.css';
 import Research from './research';
 
 
-const MiniNav = () => {
+const MiniNav = ({data}) => {
   let navItems = { id: "", symbol: ""}
   let rows = { id: "", date: "", event: "", author: "", url: "" }
-  const [assets, setAssets] = useState([])
   const [news, setNews] = useState([])
   const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    setLoading(true);
-    let mounted = true;
-        axios.get(`https://data.messari.io/api/v2/assets`).then(res => {
-            const data = res.data.data
-            if(mounted) {
-                setAssets(data)
-                setLoading(false);
-            }
-        })
-        return () => mounted = false;
-    }, [])
 
-    navItems = assets.map( (i) => {
+    navItems = data.data.map( (i) => {
         return {
             id: i.id,
             symbol: i.symbol,

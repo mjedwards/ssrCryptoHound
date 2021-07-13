@@ -1,33 +1,16 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import VolumeTable from '../tables/volumeTable'
 import Pagination from './pagination'
 
 
 
-const Volume = () => {
+const Volume = ({data}) => {
     let rows = { id:"", symbol: "", name: "", volReal: null, vol: null, mcap: null}
-    const [assets, setAssets] = useState([])
-    const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1)
     const [assetsPerPage] = useState(5);
 
-    
-    useEffect(() => {
-        setLoading(true);
-        const fetchData = () => {axios.get('https://data.messari.io/api/v2/assets').then(res => {
-            const data = res.data.data
-            setAssets(data)
-            setLoading(false);
-        })}
-            const timer = setTimeout(() => {
-                fetchData();
-              }, 10000);
-            return () => clearTimeout(timer);
-    }, [])
 
-
-    rows = assets.map( (i) => {
+    rows = data.data.map( (i) => {
         return {
             id: i.id,
             symbol: i.symbol,
@@ -47,7 +30,7 @@ const Volume = () => {
 
     return (
         <div style={{ height: 400, width: '100%' }}> 
-            <VolumeTable assets={currentAssets} loading={loading} />
+            <VolumeTable assets={currentAssets} />
             <Pagination
             assetsPerPage={assetsPerPage}
             totalAssets={rows.length}

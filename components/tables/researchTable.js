@@ -1,8 +1,7 @@
 import {React, useState }from 'react';
-import { Icon, Label, Menu, Table } from 'semantic-ui-react'
-import Pagination from '../home/pagination'
+import { Table } from 'semantic-ui-react'
 
-const ResearchTable = ({ assets, loading, properties }) => {
+const ResearchTable = ({ assets }) => {
     const [isActivated, setIsActived] = useState("");
     const handleClick = (e) => {
         if (e) {

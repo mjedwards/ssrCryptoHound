@@ -23,7 +23,7 @@ import Volume from '../components/home/volumes'
 import Subscribe from '../components/home/subscribe'
 import Fundamentals from '../components/home/fundamentals'
 
-export default function Home() {
+export default function Home({data, news, prices}) {
   const [watchList, setWatchList] = useState([]);
   return (
     <>
@@ -31,26 +31,43 @@ export default function Home() {
       <div className={styles.container}>
         <div className={styles.leftContainer}>
           <Wacthlist />
-          <Roi />
-          <Mining />
-          <Sectors />
+          <Roi data={data}/>
+          <Mining data={data}/>
+          <Sectors data={data} />
         </div>
         <div className={styles.centerContainer}>
-          <Chart />
+          <Chart prices={prices}/>
           <CtaTwo />
-          <News />
-          <MiniNav />
+          <News news={news}/>
+          <MiniNav data={data}/>
           <Cta />
           <Footer />
         </div>
         <div className={styles.rightContainer}>
           <SpecialUpdates />
-          <Volume />
+          <Volume data={data}/>
           <Subscribe />
-          <Fundamentals />
+          <Fundamentals data={data}/>
         </div>
       </div>
     </Layout>
     </>
   )
+}
+
+
+export async function getServerSideProps() {
+  const [res, newsRes, pricesRes] = await Promise.all([
+    fetch('https://data.messari.io/api/v2/assets'),
+    fetch('https://data.messari.io/api/v1/news'),
+    fetch('https://api.coingecko.com/api/v3/coins/bitcoin/market_chart/range?vs_currency=usd&from=1622525134&to=1625030734')
+  ])
+  const [data, news, prices] = await Promise.all([
+    res.json(), 
+    newsRes.json(),
+    pricesRes.json()
+  ]) 
+  return {
+    props: {data, news, prices},
+  }
 }

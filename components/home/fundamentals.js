@@ -1,33 +1,16 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import FundamentalsTable from '../tables/fundamentalsTable'
 import Pagination from './pagination'
 
 
 
-const Fundamentals = () => {
+const Fundamentals = ({data}) => {
     let rows = { id:"", symbol: "", name: "", mcap: null, ymcap: null}
-    const [assets, setAssets] = useState([])
-    const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1)
     const [assetsPerPage] = useState(9);
 
-    
-    useEffect(() => {
-        setLoading(true);
-        const fetchData = () => {axios.get('https://data.messari.io/api/v2/assets').then(res => {
-            const data = res.data.data
-            setAssets(data)
-            setLoading(false);
-        })}
-            const timer = setTimeout(() => {
-                fetchData();
-              }, 10000);
-            return () => clearTimeout(timer);
-    }, [])
 
-
-    rows = assets.map( (i) => {
+    rows = data.data.map( (i) => {
         return {
             id: i.id,
             symbol: i.symbol,
@@ -46,7 +29,7 @@ const Fundamentals = () => {
 
     return (
         <div style={{ height: 400, width: '100%' }}> 
-            <FundamentalsTable assets={currentAssets} loading={loading} />
+            <FundamentalsTable assets={currentAssets} />
             <Pagination
             assetsPerPage={assetsPerPage}
             totalAssets={rows.length}

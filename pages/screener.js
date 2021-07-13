@@ -15,8 +15,6 @@ export default function Screener({data}) {
 export async function getServerSideProps() {
   const res = await fetch('https://data.messari.io/api/v2/assets');
   const data = await res.json()
-  console.log(data)
-  // const data = response.data
   return {
     props: {data},
   }

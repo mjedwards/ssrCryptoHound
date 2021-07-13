@@ -14,26 +14,10 @@ const styles = {
 }
 
 
-const Chart = () => {
+const Chart = ({prices}) => {
   let coinHistory = []
-  const [data, setData] = useState([])
-  const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    let mounted = true;
-    setLoading(true);
-    
-        axios.get(`https://api.coingecko.com/api/v3/coins/bitcoin/market_chart/range?vs_currency=usd&from=1622525134&to=1625030734`).then(res => {
-          const data = res.data.prices  
-            if(mounted) {
-              setData(data)
-              setLoading(false);
-            }
-            })
-        return () => mounted = false;
-    }, [])
-    
-    
-    coinHistory.push(data.map((i, index) => {
+  
+  coinHistory.push(prices.prices.map((i, index) => {
       return (
         { 
           label: new Date(i[0]).toDateString().slice(0,3), 
