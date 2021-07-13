@@ -1,13 +1,16 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
 
 import Layout from "../components/layout"
 import ScreenerTable from '../components/screener/screenerTable'
   
+const DynamicComponent = dynamic(() =>import('../components/screener/screenerTable'))
 export default function Screener({data}) {
     
   return (
     <Layout>
-        <ScreenerTable  data={data}/>
+      <DynamicComponent data={data}/>
+        {/* <ScreenerTable  data={data}/> */}
     </Layout>
   )
 }
