@@ -27,9 +27,9 @@ const VolumeTable = ({ assets, loading, properties }) => {
         </Table.Header>
 
         <Table.Body>
-            {assets.map(i  => {
+            {assets.map((i,index)  => {
                 return (
-                    <Table.Row key={i.id} onClick={handleClick} className={isActivated}>
+                    <Table.Row key={index} onClick={handleClick} className={isActivated}>
                         <Table.Cell singleLine>
                             <h5>{i.symbol}</h5>
                             {i.name}

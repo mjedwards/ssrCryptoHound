@@ -29,7 +29,7 @@ const WacthlistTable = ({ assets, loading, properties }) => {
         </Table.Row>
         </Table.Header>
         <Table.Body> 
-            {assets.map(i  => {
+            {assets.map((i, index)  => {
                 return (
                     !i.name ? <Table.Row as='tr'>
                         <Table.Cell><div></div></Table.Cell>
@@ -37,7 +37,7 @@ const WacthlistTable = ({ assets, loading, properties }) => {
                         <Table.Cell>Start adding the assets you want to track.</Table.Cell>
                         <Table.Cell><div></div></Table.Cell>
                     </Table.Row> :
-                    <Table.Row key={i.id} onClick={handleClick} className={isActivated}>
+                    <Table.Row key={index} onClick={handleClick} className={isActivated}>
                         <Table.Cell singleLine>
                             <h5>{i.symbol}</h5>
                             {i.name}

@@ -27,9 +27,9 @@ const MiningTable = ({ assets, loading}) => {
         </Table.Header>
 
         <Table.Body>
-            {assets.map(i  => {
+            {assets.map((i, index)  => {
                 return (
-                    <Table.Row key={i.id} onClick={handleClick} className={isActivated}>
+                    <Table.Row key={index} onClick={handleClick} className={isActivated}>
                         <Table.Cell singleLine>
                             {i.name}
                         </Table.Cell>

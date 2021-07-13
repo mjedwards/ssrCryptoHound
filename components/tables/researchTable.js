@@ -24,9 +24,9 @@ const ResearchTable = ({ assets, loading, properties }) => {
         </Table.Row>
         </Table.Header>
         <Table.Body> 
-            {assets.map(i  => {
+            {assets.map((i, index)  => {
                 return (
-                    <Table.Row key={i.id} onClick={handleClick} className={isActivated}>
+                    <Table.Row key={index} onClick={handleClick} className={isActivated}>
                         <Table.Cell singleLine>
                             {!i.date || i.date === null ? "Not Available" : i.date.split('').slice(0,10)}
                         </Table.Cell>
