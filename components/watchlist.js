@@ -1,10 +1,9 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react'
-import WacthlistTable from '../tables/wacthlistTable'
-import Pagination from './pagination'
+import React, { useState } from 'react'
+import WacthlistTable from './tables/wacthlistTable'
+import Pagination from './home/pagination'
 
 
-const WatchList = () => {
+const Watchlist = () => {
     let rows = [{ id:0, symbol: "", name: "", price: null, mcap: null}]
     const [assets, setAssets] = useState([])
     const [loading, setLoading] = useState(false);
@@ -31,4 +30,4 @@ const WatchList = () => {
     );
   };
   
-  export default WatchList;
+  export default Watchlist;

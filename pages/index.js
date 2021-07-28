@@ -7,8 +7,8 @@ import {useState} from "react"
 import 'semantic-ui-css/semantic.min.css';
 
 import Layout from "../components/layout"
-import Wacthlist from "../components/home/watchlist"
-import Roi from "../components/home/roi"
+import Wacthlist from "../components/watchlist"
+import Roi from "../components/roi"
 import Sectors from "../components/home/sectors"
 import Mining from "../components/home/miningStats"
 import Chart from "../components/chart"

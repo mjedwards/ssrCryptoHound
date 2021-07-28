@@ -10,7 +10,7 @@ export default function Screener({data}) {
   return (
     <Layout>
       <DynamicComponent data={data}/>
-        {/* <ScreenerTable  data={data}/> */}
+      {/* <ScreenerTable  data={data}/> */}
     </Layout>
   )
 }

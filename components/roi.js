@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import AssetsTable from '../tables/assetsTable'
-import Pagination from './pagination'
+import AssetsTable from './tables/assetsTable'
+import Pagination from './home/pagination'
 
 
 

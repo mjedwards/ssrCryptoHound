@@ -1,8 +1,8 @@
 import React from 'react'
 import _ from 'lodash'
+import dynamic from 'next/dynamic'
 
 import { Table } from 'semantic-ui-react'
-
 
   
 const ScreenerTable = ({data}) => {  
