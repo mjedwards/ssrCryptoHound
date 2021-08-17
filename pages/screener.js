@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useReducer } from "react";
 import _ from "lodash";
 import Layout from "../components/layout";
 import { Table } from "semantic-ui-react";
@@ -49,7 +49,7 @@ export default function Screener({ data }) {
     }
   }
 
-  const [state, dispatch] = React.useReducer(screenerReducer, {
+  const [state, dispatch] = useReducer(screenerReducer, {
     column: null,
     info: tableData,
     direction: null,
