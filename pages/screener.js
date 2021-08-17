@@ -2,6 +2,7 @@ import React, { useReducer } from "react";
 import _ from "lodash";
 import Layout from "../components/layout";
 import { Table } from "semantic-ui-react";
+import Link from "next/link";
 
 export default function Screener({ data }) {
   let tableData = [
