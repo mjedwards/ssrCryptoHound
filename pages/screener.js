@@ -58,6 +58,12 @@ export default function Screener({ data }) {
   const { column, info, direction } = state;
   return (
     <Layout>
+      <h1
+        onClick={() => console.log("im being clicked")}
+        style={{ textColor: "white", fontSize: "5rem" }}
+      >
+        Click Me
+      </h1>
       <Table
         sortable
         inverted
