@@ -70,7 +70,8 @@ export default function Screener({ data }) {
           <Table.Row>
             <Table.HeaderCell
               sorted={column === "name" ? direction : null}
-              onClick={() => dispatch({ type: "CHANGE_SORT", column: "name" })}
+              // onClick={() => dispatch({ type: "CHANGE_SORT", column: "name" })}
+              onClick={() => console.log("im being clicked")}
             >
               NAME
             </Table.HeaderCell>
