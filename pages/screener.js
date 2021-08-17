@@ -60,7 +60,7 @@ export default function Screener({ data }) {
     <Layout>
       <h1
         onClick={() => console.log("im being clicked")}
-        style={{ textColor: "white", fontSize: "5rem" }}
+        style={{ color: "white", fontSize: "5rem", cursor: "pointer" }}
       >
         Click Me
       </h1>
